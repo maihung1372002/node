@@ -3,4 +3,11 @@ h1 {
   color: aqua;
 }
 
+.nav-user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #5e5e5e;
+}
+
 /*# sourceMappingURL=main.css.map */
