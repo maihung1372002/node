@@ -10,4 +10,10 @@ h1 {
   border: 1px solid #5e5e5e;
 }
 
+.select-action {
+  width: 160px;
+  height: 40px;
+  margin: 0 16px;
+}
+
 /*# sourceMappingURL=main.css.map */

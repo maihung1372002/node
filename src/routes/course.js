@@ -4,6 +4,7 @@ const router = express.Router();
 const courseController = require('../app/controllers/CourseControllers');
 
 router.get('/create', courseController.create);
+router.post('/handle-form-action', courseController.handleFormAction);
 router.get('/:id/edit', courseController.edit);
 router.put('/:id', courseController.save);
 router.patch('/:id/restore', courseController.restore);
