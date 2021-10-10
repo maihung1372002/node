@@ -7,11 +7,13 @@ const app = express();
 const port = 3000;
 const route = require('./routes/index');
 const db = require('./config/db');
+const sortMiddleware = require('./app/middlewares/SortMiddleware');
 
 db.connect();
 
 // app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(sortMiddleware);
 
 app.use(
     express.urlencoded({
@@ -28,6 +30,25 @@ app.engine(
             sum: function (a, b) {
                 return a + b;
             },
+            sortAble: function(column, sort){
+                const sortType =  column === sort.column ? sort.type : 'default';
+
+                const icons = {
+                    default:'oi oi-elevator',
+                    asc:'oi oi-sort-ascending',
+                    desc:'oi oi-sort-descending',
+                }
+                const types ={
+                    default: 'desc',
+                    asc: 'desc',
+                    desc: 'asc',
+                }
+                // type = 
+                let icon = icons[sortType];
+                let type = types[sortType];
+                
+                return `<a href="?_sort&column=${column}&type=${type}" class="${icon}"></a>`
+            }
         },
     }),
 );

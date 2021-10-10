@@ -6,7 +6,6 @@
         <input type="checkbox" class="form-check-input" id="checkbox-all">
         <label class="form-check-label" for="checkbox-all">Select all</label>
       </div>
-      
       <select class="custom-select select-action" name="action" required>
         <option value="">--Select action--</option>
         <option value="delete">delete</option>
@@ -16,10 +15,20 @@
     <table class="table mt-2">
         <thead class="thead-dark">
             <tr>
-            <th scope="col" colspan="2">#</th>
-            <th scope="col">Name course</th>
-            <th scope="col">Level</th>
-            <th scope="col">Time post</th>
+            <th scope="col" ></th>
+            <th scope="col" >
+              {{{sortAble '_id' _sort}}}
+            </th>
+            <th scope="col">Name course
+              {{{sortAble 'name' _sort}}}
+            </th>
+            <th scope="col">Level
+              {{{sortAble 'level' _sort}}}
+
+            </th>
+            <th scope="col">Time post
+              {{{sortAble 'createdAt' _sort}}}
+            </th>
             <th scope="col"></th>
             </tr>
         </thead>
@@ -31,7 +40,7 @@
                       <input type="checkbox" class="form-check-input checkbox-course" name="courseIds[]" value="{{this._id}}">
                     </div>
                 </td>
-                <th scope="row">{{sum @index 1}}</th>
+                <th scope="row">{{this._id}}</th>
                 <td>{{this.name}}</td>
                 <td>{{this.level}}</td>
                 <td>{{this.createdAt}}</td>
